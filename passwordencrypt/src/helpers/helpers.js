@@ -43,6 +43,7 @@ const setEncryptService = ( service ) => {
 
     service.map(( item ) => {
         items.push({
+            id      : item.id,
             service : AES.encrypt( item.service, 'test' ).toString(),
             user    : AES.encrypt( item.user, 'test' ).toString(),
             password: AES.encrypt( item.password, 'test' ).toString()

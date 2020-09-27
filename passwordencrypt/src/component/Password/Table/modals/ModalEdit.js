@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
-import { AES } from 'crypto-js';
 import { useCreateForm } from '../../../../hooks/useCreateForm';
 import { ModalForm } from './ModalForm';
 import { initEdit } from '../../../../helpers/helpers';

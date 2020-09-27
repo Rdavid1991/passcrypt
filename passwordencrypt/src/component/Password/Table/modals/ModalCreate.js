@@ -1,6 +1,5 @@
 import React from 'react';
 import { useCreateForm } from '../../../../hooks/useCreateForm';
-import { AES } from 'crypto-js';
 import { ModalForm } from './ModalForm';
 
 // eslint-disable-next-line react/prop-types

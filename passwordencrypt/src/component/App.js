@@ -13,7 +13,8 @@ export const App = () => {
     const [fade, setfade] = useState({
         signIn  : 'animate__fadeInDown',
         password: '',
-        register: ''
+        register: '',
+        generate: ''
     });
 
 

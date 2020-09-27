@@ -4,6 +4,7 @@ import { Delete,Edit,View } from './Options/options';
 import {ModalCreate,ModalEdit,ModalDelete} from './modals/index';
 import { serviceReducer } from '../../../reducers/serviceReducer';
 import { getEncryptService, setEncryptService } from '../../../helpers/helpers';
+import { GeneratePassword } from './modals/GeneratePassword/GeneratePassword';
 
 export const TablePassword = () => {
 
@@ -20,6 +21,7 @@ export const TablePassword = () => {
     }, [services]);
 
     const handleServiceAdd = ( newServices ) => {
+
         dispatch({
             type   : 'add',
             payload: newServices
@@ -75,6 +77,7 @@ export const TablePassword = () => {
                     }
                 </tbody>
             </table>
+            <GeneratePassword handleServiceAdd={handleServiceAdd}/>
             <ModalCreate handleServiceAdd={handleServiceAdd} />
             <ModalEdit handleServiceEdit={handleServiceEdit} services={services} itemCode={itemCode} />
             <ModalDelete handleServiceDelete={() => handleServiceDelete( itemCode )} />

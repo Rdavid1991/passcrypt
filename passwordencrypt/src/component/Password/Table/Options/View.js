@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import { AES, enc } from 'crypto-js';
 
 export const View = ({ password }) => {
 
