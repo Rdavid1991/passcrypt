@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { useCreateForm } from '../../../../../hooks/useCreateForm';
-import { Button, Input } from '../../../../items/Items';
-import { generate } from './generate';
+import { useCreateForm } from '../../hooks/useCreateForm';
+import { Button, Input } from '../../common';
+import { generate } from '../../../helpers/generate';
 
 // eslint-disable-next-line react/prop-types
 export const GeneratePassword = ({handleServiceAdd}) => {

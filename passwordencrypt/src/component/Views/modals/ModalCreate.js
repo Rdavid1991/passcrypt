@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCreateForm } from '../../../../hooks/useCreateForm';
+import { useCreateForm } from '../../hooks/useCreateForm';
 import { ModalForm } from './ModalForm';
 
 // eslint-disable-next-line react/prop-types

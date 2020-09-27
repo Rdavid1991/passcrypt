@@ -1,7 +1,7 @@
 import React from 'react';
-import { TablePassword } from './Table/TablePassword';
+import { TablePassword } from './TablePassword';
 import './Password.css';
-import { Button } from '../items/Items';
+import { Button } from '../../common';
 
 // eslint-disable-next-line react/prop-types
 export const Password = ({ setScreen, setfade }) => {

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Password } from './Views/Password/Password';
+import { SignIn } from './Views/SignIn/SignIn';
+import { Register } from './Views/SignUp/Register';
 
-import { Password } from './Password/Password';
 
-import { Register } from './SignUp/Register';
-import { SignIn } from './SignIn/SignIn';
 
 
 export const App = () => {

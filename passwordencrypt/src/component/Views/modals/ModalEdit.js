@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
-import { useCreateForm } from '../../../../hooks/useCreateForm';
+import { useCreateForm } from '../../hooks/useCreateForm';
 import { ModalForm } from './ModalForm';
-import { initEdit } from '../../../../helpers/helpers';
+import { initEdit } from '../../../helpers/helpers';
 
 export const ModalEdit = ({ handleServiceEdit, services, itemCode }) => {
 

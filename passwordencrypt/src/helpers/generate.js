@@ -39,8 +39,6 @@ const getPassword = ( length, key )=>{
         randomName += posible.charAt( Math.floor( Math.random() * posible.length ));
     }
 
-    //console.log( !!randomName.match( key ), randomName );
-
     if ( !!!randomName.match( key )) {
         return getPassword( length, key );
     }else{

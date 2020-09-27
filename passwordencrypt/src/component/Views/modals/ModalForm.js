@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Button, Input, InputPassword } from '../../../items/Items';
+import { Button, Input, InputPassword } from '../../common';
 
 export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, htmlId }) => {
 

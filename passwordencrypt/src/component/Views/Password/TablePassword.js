@@ -1,17 +1,16 @@
 import React, { useReducer, useState } from 'react';
 import { useEffect } from 'react';
-import { Delete,Edit,View } from './Options/options';
-import {ModalCreate,ModalEdit,ModalDelete} from './modals/index';
+import { Delete, Edit, View } from '../../common';
+import { ModalCreate, ModalEdit, ModalDelete, GeneratePassword } from '../modals';
 import { serviceReducer } from '../../../reducers/serviceReducer';
 import { getEncryptService, setEncryptService } from '../../../helpers/helpers';
-import { GeneratePassword } from './modals/GeneratePassword/GeneratePassword';
 
 export const TablePassword = () => {
 
     const [itemCode, setItemCode] = useState( '' );
 
     const init = () => {
-        return  getEncryptService( JSON.parse( localStorage.getItem( "services" )) || []);
+        return getEncryptService( JSON.parse( localStorage.getItem( "services" )) || []);
     };
 
     const [services, dispatch] = useReducer( serviceReducer, [], init );
@@ -61,8 +60,8 @@ export const TablePassword = () => {
 
                             <tr key={item.id} className="animate__animated animate__fadeIn">
                                 <td>{i + 1}</td>
-                                <td>{ item.service }</td>
-                                <td>{ item.user }</td>
+                                <td>{item.service}</td>
+                                <td>{item.user}</td>
                                 <td>
                                     <View password={item.password} />
                                 </td>
@@ -77,7 +76,7 @@ export const TablePassword = () => {
                     }
                 </tbody>
             </table>
-            <GeneratePassword handleServiceAdd={handleServiceAdd}/>
+            <GeneratePassword handleServiceAdd={handleServiceAdd} />
             <ModalCreate handleServiceAdd={handleServiceAdd} />
             <ModalEdit handleServiceEdit={handleServiceEdit} services={services} itemCode={itemCode} />
             <ModalDelete handleServiceDelete={() => handleServiceDelete( itemCode )} />
