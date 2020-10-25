@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Input, InputPassword } from '../../common';
 import './SignIn.css';
 
 // eslint-disable-next-line react/prop-types
 export const SignIn = ({ setScreen, setfade }) => {
+
+    const [disableButton, setDisableButton] = useState(false)
 
     const handleChangeScreen = ( e ) => {
 
@@ -36,40 +38,45 @@ export const SignIn = ({ setScreen, setfade }) => {
         >
             <h5 className="card-header">Usuario</h5>
             <div className="card-body">
+                <form>
 
-                <div className="form-group">
-                    <label htmlFor="email">E-mail</label>
-                    <Input
-                        name="user"
-                        type="text"
-                        value="test"
-                    />
-                </div>
-                <div className="form-group position-relative">
-                    <label htmlFor="password">contraseña</label>
+                    <div className="form-group">
+                        <label htmlFor="email">E-mail</label>
+                        <Input
+                            name="user"
+                            type="text"
+                            value="test"
+                            change={()=>{}}
+                            disableButton={disableButton}
+                            setDisableButton={setDisableButton}
+                        />
+                    </div>
+                    <div className="form-group position-relative">
+                        <label htmlFor="password">contraseña</label>
 
-                    <InputPassword
-                        name="password"
-                        value="test"
-                        change={() => { }}
-                    />
-                </div>
-                {/*  <small
+                        <InputPassword
+                            name="password"
+                            value="test"
+                            change={() => { }}
+                        />
+                    </div>
+                    {/*  <small
                         id="credential"
                         className="credential position-absolute text-warning d-none"
                     >Usuario o contraseñas invalidos</small> */}
-                <div className="d-flex justify-content-between">
-                    <Button
-                        title="Conectar"
-                        className="btn btn-primary"
-                        click={()=>handleChangeScreen( "loguinform" )}
-                    />
-                    <Button
-                        title="Registrar"
-                        className="btn btn-primary"
-                        click={handleChangeScreen}
-                    />
-                </div>
+                    <div className="d-flex justify-content-between">
+                        <Button
+                            title="Conectar"
+                            className="btn btn-primary"
+                            click={() => handleChangeScreen( "loguinform" )}
+                        />
+                        <Button
+                            title="Registrar"
+                            className="btn btn-primary"
+                            click={handleChangeScreen}
+                        />
+                    </div>
+                </form>
             </div>
         </div>
     );

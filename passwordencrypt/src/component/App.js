@@ -34,7 +34,7 @@ export const App = () => {
                     screen === "password" ?
                         <div
                             className={`animate__animated ${fade.password} d-flex justify-content-center w-100`}
-                            style={{animationFillMode: 'none'}}
+                            style={{ animationFillMode: 'none' }}
                         >
                             <Password setScreen={setScreen} setfade={setfade} />
                         </div>
@@ -43,7 +43,9 @@ export const App = () => {
                 }
                 {
                     screen === "register" ?
-                        <div className={`animate__animated ${fade.register}`}>
+                        <div className={`animate__animated ${fade.register}`}
+                            style={{ animationFillMode: 'none' }}
+                        >
                             <Register setScreen={setScreen} setfade={setfade} />
                         </div>
 

@@ -13,7 +13,9 @@ export const ModalCreate = ({ handleServiceAdd }) => {
 
     const { user, service, password } = inputChange;
 
-    const handleSaveService = () => {
+    const handleSaveService = ( e ) => {
+
+        e.preventDefault();
 
         handleServiceAdd({
             id: new Date().getTime(),

@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Input, InputPassword } from '../../common';
 
 export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, htmlId }) => {
 
     const { user, service, password } = inputChange;
+    const [disableButton, setDisableButton] = useState(false)
 
     return (
         <div className="modal fade" id={htmlId}>
@@ -17,7 +18,9 @@ export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, h
                         </button>
                     </div>
                     <div className="modal-body">
-                        <form>
+                        <form
+                            onSubmit={handleSaveService}
+                        >
                             <div
                                 className="form-group"
                             >
@@ -27,6 +30,8 @@ export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, h
                                     value={service}
                                     name="service"
                                     change={handleInputChange}
+                                    disableButton={disableButton}
+                                    setDisableButton={setDisableButton}
                                 />
                             </div>
                             <div className="form-group">
@@ -36,6 +41,8 @@ export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, h
                                     value={user}
                                     name="user"
                                     change={handleInputChange}
+                                    disableButton={disableButton}
+                                    setDisableButton={setDisableButton}
                                 />
 
                             </div>
@@ -55,12 +62,7 @@ export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, h
                                     title="Cancelar"
                                 />
                                 <Button
-                                    dataDismiss={
-                                        htmlId === "modal-edit"
-                                            ? "modal"
-                                            : null
-                                    }
-                                    click={handleSaveService}
+                                    type="submit"
                                     className="btn btn-primary"
                                     title="Guardar"
                                 />

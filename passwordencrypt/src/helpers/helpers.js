@@ -1,7 +1,9 @@
 import { AES, enc } from 'crypto-js';
 
+const invalidchart = /</g
+
 const haveInvalidChart = ( target ) => {
-    return target.match( /</g )
+    return target.match( invalidchart )
         ? true
         : false;
 };
@@ -53,11 +55,20 @@ const setEncryptService = ( service ) => {
     return items;
 };
 
+const getDisableButton = (...arg) => {
+    console.log(arg);
+    const state = arg.map(item => !!item.match( invalidchart ))
+
+    return state.includes(true);
+};
+
+
 export {
+    getDisableButton,
     haveInvalidChart,
     decryptEdit,
     initEdit,
     getEncryptService,
-    setEncryptService
+    setEncryptService,
 };
 

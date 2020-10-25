@@ -17,6 +17,8 @@ export const InputPassword = ({ name, value, change }) => {
                 value={value}
                 onChange={change}
                 className="form-control"
+                required
+                autoComplete="off"
             />
             <i
                 className={view ? "far fa-eye" : "far fa-eye-slash"}

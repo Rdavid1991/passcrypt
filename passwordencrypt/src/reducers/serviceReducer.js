@@ -9,6 +9,7 @@ export const serviceReducer = ( state = [], action ) => {
 
         case 'edit':
             return state.map( item =>{
+                console.log(item);
                 if ( item.id === action.payload.id ) {
                     return item = action.payload;
                 }else{

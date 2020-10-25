@@ -4,6 +4,8 @@ import { useCreateForm } from '../../hooks/useCreateForm';
 import { ModalForm } from './ModalForm';
 import { initEdit } from '../../../helpers/helpers';
 
+//import PropType from 'prop-types';
+
 export const ModalEdit = ({ handleServiceEdit, services, itemCode }) => {
 
     const [inputChange, handleInputChange, setEditValue] = useCreateForm( initEdit( services,itemCode ));
@@ -14,13 +16,19 @@ export const ModalEdit = ({ handleServiceEdit, services, itemCode }) => {
         setEditValue( initEdit( services,itemCode ));
     }, [itemCode]);
 
-    const handleSaveService = ( ) => {
+
+
+    const handleSaveService = ( e ) => {
+        e.preventDefault();
+
         handleServiceEdit({
             id,
             user   ,
             service ,
             password
         });
+
+        window.$( '#modal-edit' ).modal( 'hide' );
     };
 
     return (
@@ -32,3 +40,7 @@ export const ModalEdit = ({ handleServiceEdit, services, itemCode }) => {
         />
     );
 };
+
+/* ModalEdit.prototype = {
+    itemCode: PropType.string
+} */
