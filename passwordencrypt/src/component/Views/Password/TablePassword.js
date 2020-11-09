@@ -1,42 +1,48 @@
-import React, { useReducer, useState } from 'react';
+import React, { useContext, useReducer, useState } from 'react';
 import { useEffect } from 'react';
 import { Delete, Edit, View } from '../../common';
 import { ModalCreate, ModalEdit, ModalDelete, GeneratePassword } from '../modals';
 import { serviceReducer } from '../../../reducers/serviceReducer';
 import { getEncryptService, setEncryptService } from '../../../helpers/helpers';
+import { useUserContext } from '../../hooks/useUserContext';
 
 export const TablePassword = () => {
 
-    const [itemCode, setItemCode] = useState( '' );
+    const context = useContext(useUserContext)
+
+    const { userName, userPassword } = context.user
+
+    const [itemCode, setItemCode] = useState('');
 
     const init = () => {
-        return getEncryptService( JSON.parse( localStorage.getItem( "services" )) || []);
+        return getEncryptService(JSON.parse(localStorage.getItem("services")) || [], userPassword);
     };
 
-    const [services, dispatch] = useReducer( serviceReducer, [], init );
+    const [services, dispatch] = useReducer(serviceReducer, [], init);
 
     useEffect(() => {
-        localStorage.setItem( 'services', JSON.stringify( setEncryptService( services )));
+        localStorage.setItem('services', JSON.stringify(setEncryptService(services, userPassword, userName)));
     }, [services]);
 
-    const handleServiceAdd = ( newServices ) => {
+    const handleServiceAdd = (newServices) => {
+        console.log(newServices);
 
         dispatch({
-            type   : 'add',
+            type: 'add',
             payload: newServices
         });
     };
 
-    const handleServiceEdit = ( serviceEdit ) => {
+    const handleServiceEdit = (serviceEdit) => {
         dispatch({
-            type   : 'edit',
+            type: 'edit',
             payload: serviceEdit
         });
     };
 
-    const handleServiceDelete = ( servicesId ) => {
+    const handleServiceDelete = (servicesId) => {
         dispatch({
-            type   : 'delete',
+            type: 'delete',
             payload: servicesId
         });
     };
@@ -56,7 +62,9 @@ export const TablePassword = () => {
                 </thead>
                 <tbody id="tBody">
                     {
-                        services.map(( item, i ) => (
+                        services.map((item, i) => (
+
+                            item.owner === userName?
 
                             <tr key={item.id} className="animate__animated animate__fadeIn">
                                 <td>{i + 1}</td>
@@ -72,6 +80,9 @@ export const TablePassword = () => {
                                     </div>
                                 </td>
                             </tr>
+                            :
+                            null
+
                         ))
                     }
                 </tbody>
@@ -79,7 +90,7 @@ export const TablePassword = () => {
             <GeneratePassword handleServiceAdd={handleServiceAdd} />
             <ModalCreate handleServiceAdd={handleServiceAdd} />
             <ModalEdit handleServiceEdit={handleServiceEdit} services={services} itemCode={itemCode} />
-            <ModalDelete handleServiceDelete={() => handleServiceDelete( itemCode )} />
+            <ModalDelete handleServiceDelete={() => handleServiceDelete(itemCode)} />
         </div>
     );
 };

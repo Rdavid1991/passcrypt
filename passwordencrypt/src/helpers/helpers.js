@@ -1,17 +1,14 @@
 import { AES, enc } from 'crypto-js';
+import { useContext } from 'react';
+import { useUserContext } from '../component/hooks/useUserContext';
 
-const invalidchart = /</g
+
+const invalidchart = /<|>/g
 
 const haveInvalidChart = ( target ) => {
     return target.match( invalidchart )
         ? true
         : false;
-};
-
-const decryptEdit = ( field ) => {
-    return field.length >= 44
-        ? AES.decrypt( field, 'test' ).toString( enc.Utf8 )
-        : field;
 };
 
 const initEdit = ( services, itemCode ) => {
@@ -29,13 +26,12 @@ const getEncryptService = ( items ) => {
     let service = items;
 
     service.map(( item ) => {
-        item.service = AES.decrypt( item.service, 'test' ).toString( enc.Utf8 );
-        item.user = AES.decrypt( item.user, 'test' ).toString( enc.Utf8 );
-        item.password = AES.decrypt( item.password, 'test' ).toString( enc.Utf8 );
+        item.service = AES.decrypt( item.service, "test" ).toString( enc.Utf8 );
+        item.user = AES.decrypt( item.user, "test" ).toString( enc.Utf8 );
+        item.password = AES.decrypt( item.password, "test" ).toString( enc.Utf8 );
         return item;
     });
 
-    console.log( service );
     return service;
 };
 
@@ -44,11 +40,13 @@ const setEncryptService = ( service ) => {
     let items = [];
 
     service.map(( item ) => {
+        
         items.push({
+            owner   : item.owner,
             id      : item.id,
-            service : AES.encrypt( item.service, 'test' ).toString(),
-            user    : AES.encrypt( item.user, 'test' ).toString(),
-            password: AES.encrypt( item.password, 'test' ).toString()
+            service : AES.encrypt( item.service, "test" ).toString(),
+            user    : AES.encrypt( item.user, "test" ).toString(),
+            password: AES.encrypt( item.password, "test" ).toString()
         });
     });
 
@@ -56,18 +54,22 @@ const setEncryptService = ( service ) => {
 };
 
 const getDisableButton = (...arg) => {
-    console.log(arg);
     const state = arg.map(item => !!item.match( invalidchart ))
-
     return state.includes(true);
 };
+
+const getLogin = (user, pass)=>{
+
+    let users = JSON.parse(localStorage.getItem('user')) || [];
+    return !!users.find(i => (i.email === user || i.username === user) && i.password1 === pass)   
+}
 
 
 export {
     getDisableButton,
     haveInvalidChart,
-    decryptEdit,
     initEdit,
+    getLogin,
     getEncryptService,
     setEncryptService,
 };

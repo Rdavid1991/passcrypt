@@ -6,15 +6,13 @@ const InvalidTypeChart = () => {
     );
 };
 
-const InvalidQuantityChart = () => {
+const InvalidUser = () => {
     return (
-        <div>
-            
-        </div>
+        <small className="position-absolute text-warning">Contraseña o usuario invalido</small>
     );
 };
 
 export {
     InvalidTypeChart,
-    InvalidQuantityChart
+    InvalidUser
 };

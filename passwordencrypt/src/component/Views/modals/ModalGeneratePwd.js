@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { useCreateForm } from '../../hooks/useCreateForm';
 import { Button, Input } from '../../common';
 import { generate } from '../../../helpers/generate';
 import { getDisableButton } from '../../../helpers/helpers';
+import { useUserContext } from '../../hooks/useUserContext';
 
 
 // eslint-disable-next-line react/prop-types
 export const GeneratePassword = ({ handleServiceAdd }) => {
+
+    const context = useContext(useUserContext)
+
+    const {userName} = context.user
 
     const [property, setProperty] = useState({
         type  : 'lettersNumbers',
@@ -51,6 +56,7 @@ export const GeneratePassword = ({ handleServiceAdd }) => {
         e.preventDefault();
         handleServiceAdd({
             id: new Date().getTime(),
+            owner: userName,
             user,
             service,
             password,

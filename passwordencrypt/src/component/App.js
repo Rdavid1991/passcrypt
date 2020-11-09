@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useUserContext } from './hooks/useUserContext';
 import { Password } from './Views/Password/Password';
 import { SignIn } from './Views/SignIn/SignIn';
 import { Register } from './Views/SignUp/Register';
@@ -7,6 +8,11 @@ import { Register } from './Views/SignUp/Register';
 
 
 export const App = () => {
+
+    const [user, setUser] = useState({
+        userName:"",
+        userPassword:""
+    })
 
     const [screen, setScreen] = useState( "signIn" );
 
@@ -19,6 +25,11 @@ export const App = () => {
 
 
     return (
+
+        <useUserContext.Provider value={{
+            user,
+            setUser
+        }}>
         <div className="overflow-hidden min-vh-100">
             <div className="d-flex justify-content-center align-items-center w-100 vh-100">
 
@@ -55,6 +66,8 @@ export const App = () => {
             </div>
 
         </div >
+
+        </useUserContext.Provider>
 
     );
 };

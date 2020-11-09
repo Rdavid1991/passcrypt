@@ -110,8 +110,6 @@ export const Register = ({ setScreen, setfade }) => {
                                 title="Registrar"
                                 type="submit"
                                 className="btn btn-primary mt-3"
-                                /*  dataToggle="modal"
-                                 dataTarget="#confirm" */
                                 disabled={existEmail ? true : false}
                             />
                             <Button

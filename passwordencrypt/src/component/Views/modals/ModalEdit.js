@@ -10,7 +10,7 @@ export const ModalEdit = ({ handleServiceEdit, services, itemCode }) => {
 
     const [inputChange, handleInputChange, setEditValue] = useCreateForm( initEdit( services,itemCode ));
 
-    const { id, user, service, password } = inputChange;
+    const { owner,id, user, service, password } = inputChange;
 
     useEffect(() => {
         setEditValue( initEdit( services,itemCode ));
@@ -25,7 +25,8 @@ export const ModalEdit = ({ handleServiceEdit, services, itemCode }) => {
             id,
             user   ,
             service ,
-            password
+            password,
+            owner
         });
 
         window.$( '#modal-edit' ).modal( 'hide' );
