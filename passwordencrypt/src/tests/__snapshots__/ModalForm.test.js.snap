@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas a formulario Debe mostrarse correctamente 1`] = `
+<div
+  className="modal fade"
+>
+  <div
+    className="modal-dialog"
+  >
+    <div
+      className="modal-content"
+    >
+      <div
+        className="modal-header"
+      >
+        <h5
+          className="modal-title"
+        >
+          Modal title
+        </h5>
+        <button
+          aria-label="Close"
+          className="close"
+          data-dismiss="modal"
+          type="button"
+        >
+          <span
+            aria-hidden="true"
+          >
+            ×
+          </span>
+        </button>
+      </div>
+      <div
+        className="modal-body"
+      >
+        <form
+          onSubmit={[MockFunction]}
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="service"
+            >
+              Servicio
+            </label>
+            <Input
+              disableButton={false}
+              name="service"
+              setDisableButton={[Function]}
+              type="text"
+              value="test"
+            />
+          </div>
+          <div
+            className="form-group"
+          >
+            <label
+              htmlFor="user"
+            >
+              Usuario
+            </label>
+            <Input
+              disableButton={false}
+              name="user"
+              setDisableButton={[Function]}
+              type="text"
+              value="test"
+            />
+          </div>
+          <div
+            className="form-group position-relative"
+          >
+            <label
+              htmlFor="password"
+            >
+              Contraseña
+            </label>
+            <InputPassword
+              name="password"
+              value="test"
+            />
+          </div>
+          <div
+            className="modal-footer"
+          >
+            <Button
+              className="btn btn-secondary"
+              dataDismiss="modal"
+              title="Cancelar"
+              type="button"
+            />
+            <Button
+              className="btn btn-primary"
+              disabled={false}
+              title="Guardar"
+              type="submit"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

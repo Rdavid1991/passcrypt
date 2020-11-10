@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getDisableButton } from '../../../helpers/helpers';
 import { Button, Input, InputPassword } from '../../common';
 
 export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, htmlId }) => {
 
     const { user, service, password } = inputChange;
     const [disableButton, setDisableButton] = useState(false)
+
+    useEffect(() => {
+        setDisableButton(getDisableButton(service, user, password))
+    }, [inputChange])
 
     return (
         <div className="modal fade" id={htmlId}>
@@ -65,6 +70,7 @@ export const ModalForm = ({ handleSaveService, handleInputChange, inputChange, h
                                     type="submit"
                                     className="btn btn-primary"
                                     title="Guardar"
+                                    disabled={disableButton}
                                 />
                             </div>
                         </form>
