@@ -4,14 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js ./src/features/ -r ./src/step_definitions/ "
+    "test": "cucumber-js ./src/features/ -f json:src/report/cucumber_report.json -r ./src/step_definitions/ & node src/report.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cucumber": "^6.0.5",
-    "electron-chromedriver": "^10.0.0",
+    "cucumber-html-reporter": "^5.2.0",
+    "electron-chromedriver": "^11.0.0",
     "selenium-webdriver": "^3.6.0"
-  }
+  },
+  "devDependencies": {}
 }
