@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js ./src/features/ -f json:src/report/cucumber_report.json -r ./src/step_definitions/ & node src/report.js"
+    "test": "cucumber-js ./src/features/ -f json:src/report/cucumber_report.json -r ./src/step_definitions/ & node src/report.js",
+    "chrome-driver": "chromedriver"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,7 @@
     "electron-chromedriver": "^11.0.0",
     "selenium-webdriver": "^3.6.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "eslint": "^7.14.0"
+  }
 }

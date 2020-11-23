@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useUserContext } from '../component/hooks/useUserContext';
 
 
-const invalidchart = /<|>/g
+const invalidchart = /<|>|=|\(|\)|=|!|#|\$|{|}|\[|\]/g
 
 const haveInvalidChart = ( target ) => {
     return target.match( invalidchart )
