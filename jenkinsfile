@@ -4,8 +4,8 @@ pipeline {
     stages{
         stage('npm install') {
             steps{
-                sh 'npm i ./automatet_test'
-                sh 'npm i ./passwordencrypt'    
+                sh 'cd ./automatet_test & npm i'
+                sh 'cd ./passwordencrypt & npm i '    
             }
         } 
 
