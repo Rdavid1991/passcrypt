@@ -49,7 +49,6 @@ When('Llena la información del formulario y presiona el botón guardar', async 
     await driver.findElement(By.xpath(element.buttonFormClose)).click()
 })
 
-
 Then('Se puede visualizar a información en pantalla', async () => {
     
     await driver.sleep(time)
