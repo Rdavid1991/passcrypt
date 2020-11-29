@@ -3,8 +3,8 @@ const path = require('path')
  
 var options = {
         theme: 'bootstrap',
-        jsonFile: path.join(__dirname, 'report/cucumber_report.json'),
-        output: path.join(__dirname,'report/cucumber_report.html'),
+        jsonFile: path.join(__dirname, 'reports/cucumber_report.json'),
+        output: path.join(__dirname,'reports/cucumber_report.html'),
         reportSuiteAsScenarios: true,
         scenarioTimestamp: true,
         launchReport: true,
