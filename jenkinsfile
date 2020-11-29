@@ -2,9 +2,16 @@ pipeline {
     agent any
 
     stages{
-        stage('Build') {
+        stage('npm install') {
             steps{
-                sh 'npm -v'    
+                sh 'npm i ./automatet_test'
+                sh 'npm i ./passwordencrypt'    
+            }
+        } 
+
+        stage('build') {
+            steps{
+                sh 'cd ./passwordencrypt & npm run build-react & npm run build-windows'
             }
         } 
     }
