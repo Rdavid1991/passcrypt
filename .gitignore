@@ -1,9 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+
 /passwordencrypt/node_modules
 /automatet_test/node_modules
-/automatet_test/src/report
+/automatet_test/src/reports
+
 /.pnp
 .pnp.js
 
@@ -11,6 +13,7 @@
 /coverage
 
 # production
+
 /passwordencrypt/build
 /passwordencrypt/dist
 
