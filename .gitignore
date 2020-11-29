@@ -3,6 +3,7 @@
 # dependencies
 /passwordencrypt/node_modules
 /automatet_test/node_modules
+/automatet_test/src/report
 /.pnp
 .pnp.js
 

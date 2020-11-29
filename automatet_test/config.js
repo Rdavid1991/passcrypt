@@ -1,4 +1,4 @@
-//require('electron-chromedriver/chromedriver')
+require('electron-chromedriver/chromedriver')
 const webdriver = require( 'selenium-webdriver' );
 const {setDefaultTimeout} = require('cucumber')
 const path = require( 'path' );
