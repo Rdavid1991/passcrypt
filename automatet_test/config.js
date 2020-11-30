@@ -1,4 +1,4 @@
-//require('electron-chromedriver/chromedriver')
+require('electron-chromedriver/chromedriver')
 const webdriver = require( 'selenium-webdriver' );
 const {setDefaultTimeout} = require('cucumber')
 const path = require( 'path' );
@@ -9,7 +9,8 @@ const driver = new webdriver.Builder()
   .withCapabilities({
     chromeOptions: {
       // Here is the path to your Electron binary.
-      binary: path.join( __dirname, '../passwordencrypt/dist/backup-password-react 0.1.0.exe' )
+      binary: path.join( __dirname, '../passwordencrypt/dist/backup-password-react 0.1.0.exe' ),
+      args:['--headless']
     }
   })
   .forBrowser( 'electron' )
