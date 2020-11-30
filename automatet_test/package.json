@@ -4,12 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
     "test": "cucumber-js --exit ./src/features/ -f json:src/reports/cucumber_report.json -r ./src/step_definitions/ & node src/report.js"
-=======
-    "test": "cucumber-js ./src/features/ -f json:src/reports/cucumber_report.json -r ./src/step_definitions/ & node src/report.js",
-    "chrome-driver": "chromedriver"
->>>>>>> a70bc3fb1c4b0cda1f26ad147abe358d6966d4cb
   },
   "keywords": [],
   "author": "",
