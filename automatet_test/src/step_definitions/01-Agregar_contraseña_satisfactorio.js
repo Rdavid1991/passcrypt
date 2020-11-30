@@ -4,12 +4,13 @@ const { When, Given, Then } = require('cucumber');
 
 const element = require("../helpers");
 
-const { By, } = webdriver;
+const { By,until } = webdriver;
 
 let [servicio, usuario, password] = "";
 const time = 2000
 
 Given('Usuario presiona el botón agregar contraseña', async () => {
+    await driver.get('localhost:3000')
     //Registrar usuario
     await driver.findElement(By.xpath(element.registerButton)).click()
     await driver.sleep(time)
@@ -48,6 +49,7 @@ When('Llena la información del formulario y presiona el botón guardar', async 
     await driver.sleep(time)
     await driver.findElement(By.xpath(element.buttonFormClose)).click()
 })
+
 
 Then('Se puede visualizar a información en pantalla', async () => {
     
